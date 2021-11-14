@@ -7,28 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		773E2629274173E7002F374E /* Throttler.m in Sources */ = {isa = PBXBuildFile; fileRef = 773E2628274173E7002F374E /* Throttler.m */; };
+		777F931B273EE34B00351A0A /* AVPlayer+IsPlaying.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F931A273EE34B00351A0A /* AVPlayer+IsPlaying.m */; };
+		777F9320273FFF7800351A0A /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F931F273FFF7800351A0A /* PlayerView.m */; };
+		777F93252740074600351A0A /* FullScreenPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F93242740074600351A0A /* FullScreenPlayerViewController.m */; };
+		777F932927400AE600351A0A /* WeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F932827400AE600351A0A /* WeakRef.m */; };
+		777F932C27400B5100351A0A /* MulticastDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F932B27400B5100351A0A /* MulticastDelegate.m */; };
 		77C0DC75273D78F900752794 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C0DC74273D78F900752794 /* AppDelegate.m */; };
-		77C0DC78273D78F900752794 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C0DC77273D78F900752794 /* SceneDelegate.m */; };
-		77C0DC7B273D78F900752794 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C0DC7A273D78F900752794 /* ViewController.m */; };
-		77C0DC7E273D78F900752794 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C0DC7C273D78F900752794 /* Main.storyboard */; };
 		77C0DC80273D78FC00752794 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77C0DC7F273D78FC00752794 /* Assets.xcassets */; };
 		77C0DC83273D78FC00752794 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C0DC81273D78FC00752794 /* LaunchScreen.storyboard */; };
 		77C0DC86273D78FC00752794 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C0DC85273D78FC00752794 /* main.m */; };
+		77C0DC91273D799700752794 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C0DC90273D799700752794 /* PlayerViewController.m */; };
+		77C0DC95273D7E9D00752794 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C0DC94273D7E9D00752794 /* Player.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		773E2627274173E7002F374E /* Throttler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Throttler.h; sourceTree = "<group>"; };
+		773E2628274173E7002F374E /* Throttler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Throttler.m; sourceTree = "<group>"; };
+		777F931A273EE34B00351A0A /* AVPlayer+IsPlaying.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVPlayer+IsPlaying.m"; sourceTree = "<group>"; };
+		777F931C273EE36100351A0A /* AVPlayer+IsPlaying.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVPlayer+IsPlaying.h"; sourceTree = "<group>"; };
+		777F931E273FFF7800351A0A /* PlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
+		777F931F273FFF7800351A0A /* PlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerView.m; sourceTree = "<group>"; };
+		777F93232740074600351A0A /* FullScreenPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FullScreenPlayerViewController.h; sourceTree = "<group>"; };
+		777F93242740074600351A0A /* FullScreenPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FullScreenPlayerViewController.m; sourceTree = "<group>"; };
+		777F932727400AE600351A0A /* WeakRef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeakRef.h; sourceTree = "<group>"; };
+		777F932827400AE600351A0A /* WeakRef.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeakRef.m; sourceTree = "<group>"; };
+		777F932A27400B5100351A0A /* MulticastDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MulticastDelegate.h; sourceTree = "<group>"; };
+		777F932B27400B5100351A0A /* MulticastDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MulticastDelegate.m; sourceTree = "<group>"; };
 		77C0DC70273D78F900752794 /* VKVideoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKVideoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77C0DC73273D78F900752794 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		77C0DC74273D78F900752794 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		77C0DC76273D78F900752794 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		77C0DC77273D78F900752794 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		77C0DC79273D78F900752794 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		77C0DC7A273D78F900752794 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		77C0DC7D273D78F900752794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77C0DC7F273D78FC00752794 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77C0DC82273D78FC00752794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77C0DC84273D78FC00752794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77C0DC85273D78FC00752794 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		77C0DC8F273D799700752794 /* PlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		77C0DC90273D799700752794 /* PlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		77C0DC93273D7E9D00752794 /* Player.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		77C0DC94273D7E9D00752794 /* Player.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +58,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		777F9316273EE2A200351A0A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				777F931A273EE34B00351A0A /* AVPlayer+IsPlaying.m */,
+				777F931C273EE36100351A0A /* AVPlayer+IsPlaying.h */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		777F931D273FFE2D00351A0A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				777F931E273FFF7800351A0A /* PlayerView.h */,
+				777F931F273FFF7800351A0A /* PlayerView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		777F93212740070400351A0A /* Full Screen Player */ = {
+			isa = PBXGroup;
+			children = (
+				777F93232740074600351A0A /* FullScreenPlayerViewController.h */,
+				777F93242740074600351A0A /* FullScreenPlayerViewController.m */,
+			);
+			path = "Full Screen Player";
+			sourceTree = "<group>";
+		};
+		777F932627400AB500351A0A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				777F932727400AE600351A0A /* WeakRef.h */,
+				777F932827400AE600351A0A /* WeakRef.m */,
+				777F932A27400B5100351A0A /* MulticastDelegate.h */,
+				777F932B27400B5100351A0A /* MulticastDelegate.m */,
+				773E2627274173E7002F374E /* Throttler.h */,
+				773E2628274173E7002F374E /* Throttler.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		77C0DC67273D78F900752794 = {
 			isa = PBXGroup;
 			children = (
@@ -61,19 +117,54 @@
 		77C0DC72273D78F900752794 /* VKVideoTest */ = {
 			isa = PBXGroup;
 			children = (
-				77C0DC73273D78F900752794 /* AppDelegate.h */,
-				77C0DC74273D78F900752794 /* AppDelegate.m */,
-				77C0DC76273D78F900752794 /* SceneDelegate.h */,
-				77C0DC77273D78F900752794 /* SceneDelegate.m */,
-				77C0DC79273D78F900752794 /* ViewController.h */,
-				77C0DC7A273D78F900752794 /* ViewController.m */,
-				77C0DC7C273D78F900752794 /* Main.storyboard */,
+				777F932627400AB500351A0A /* Utils */,
+				777F931D273FFE2D00351A0A /* Views */,
+				777F9316273EE2A200351A0A /* Extensions */,
+				77C0DC92273D7E7000752794 /* Services  */,
+				77C0DC8D273D792100752794 /* View Controllers */,
+				77C0DC8C273D791300752794 /* Base */,
 				77C0DC7F273D78FC00752794 /* Assets.xcassets */,
 				77C0DC81273D78FC00752794 /* LaunchScreen.storyboard */,
-				77C0DC84273D78FC00752794 /* Info.plist */,
 				77C0DC85273D78FC00752794 /* main.m */,
 			);
 			path = VKVideoTest;
+			sourceTree = "<group>";
+		};
+		77C0DC8C273D791300752794 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				77C0DC84273D78FC00752794 /* Info.plist */,
+				77C0DC73273D78F900752794 /* AppDelegate.h */,
+				77C0DC74273D78F900752794 /* AppDelegate.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		77C0DC8D273D792100752794 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				777F93212740070400351A0A /* Full Screen Player */,
+				77C0DC8E273D796300752794 /* Player */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		77C0DC8E273D796300752794 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				77C0DC8F273D799700752794 /* PlayerViewController.h */,
+				77C0DC90273D799700752794 /* PlayerViewController.m */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		77C0DC92273D7E7000752794 /* Services  */ = {
+			isa = PBXGroup;
+			children = (
+				77C0DC93273D7E9D00752794 /* Player.h */,
+				77C0DC94273D7E9D00752794 /* Player.m */,
+			);
+			path = "Services ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +226,6 @@
 			files = (
 				77C0DC83273D78FC00752794 /* LaunchScreen.storyboard in Resources */,
 				77C0DC80273D78FC00752794 /* Assets.xcassets in Resources */,
-				77C0DC7E273D78F900752794 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,24 +236,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77C0DC7B273D78F900752794 /* ViewController.m in Sources */,
+				773E2629274173E7002F374E /* Throttler.m in Sources */,
+				77C0DC95273D7E9D00752794 /* Player.m in Sources */,
+				777F932927400AE600351A0A /* WeakRef.m in Sources */,
+				777F9320273FFF7800351A0A /* PlayerView.m in Sources */,
 				77C0DC75273D78F900752794 /* AppDelegate.m in Sources */,
+				777F93252740074600351A0A /* FullScreenPlayerViewController.m in Sources */,
 				77C0DC86273D78FC00752794 /* main.m in Sources */,
-				77C0DC78273D78F900752794 /* SceneDelegate.m in Sources */,
+				77C0DC91273D799700752794 /* PlayerViewController.m in Sources */,
+				777F932C27400B5100351A0A /* MulticastDelegate.m in Sources */,
+				777F931B273EE34B00351A0A /* AVPlayer+IsPlaying.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		77C0DC7C273D78F900752794 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				77C0DC7D273D78F900752794 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		77C0DC81273D78FC00752794 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -295,11 +383,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N28UYC6RTZ;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = VKVideoTest/Info.plist;
+				INFOPLIST_FILE = VKVideoTest/Base/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,11 +410,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N28UYC6RTZ;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = VKVideoTest/Info.plist;
+				INFOPLIST_FILE = VKVideoTest/Base/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
