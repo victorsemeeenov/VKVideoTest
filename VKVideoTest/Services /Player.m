@@ -79,6 +79,7 @@ static NSTimeInterval const SkipTimeInterval = 15;
   if (_player == nil) {
     _player = [AVPlayer playerWithPlayerItem:playerItem];
     [self addTimerObserver];
+    [self addPlayerStatusObserver];
   } else {
     [_player replaceCurrentItemWithPlayerItem:playerItem];
   }
