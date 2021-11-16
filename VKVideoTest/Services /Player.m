@@ -8,8 +8,9 @@
 #import "Player.h"
 #import "AVPlayer+IsPlaying.h"
 #import "Throttler.h"
+#import "DiskCache.h"
 
-static int32_t const Timescale = 600.0;
+static int32_t const Timescale = 1000.0;
 static NSTimeInterval const SkipTimeInterval = 15;
 
 @interface Player ()
@@ -20,6 +21,7 @@ static NSTimeInterval const SkipTimeInterval = 15;
 @property (nonatomic) NSTimeInterval fastForwardTime;
 @property (nonatomic) Throttler *throttler;
 @property (nonatomic) BOOL isSeeking;
+@property (nonatomic) DiskCache *diskCache;
 
 @end
 
@@ -38,6 +40,7 @@ static NSTimeInterval const SkipTimeInterval = 15;
                                                                         -1);
     _playerQueue = dispatch_queue_create("com.vkvideotest.player.serial.queue", attributes);
     _throttler = [[Throttler alloc] initWithTimeInterval:0.4];
+    _diskCache = [DiskCache videosCache];
     [self addPlayerObserver];
   }
   return self;
@@ -46,6 +49,7 @@ static NSTimeInterval const SkipTimeInterval = 15;
 - (void)dealloc {
   [self removeTimerObserver];
   [self removePlayerObserver];
+  [self removeStatusObserver];
 }
 
 #pragma mark - Public
@@ -70,7 +74,7 @@ static NSTimeInterval const SkipTimeInterval = 15;
   }
 }
 
-- (void)play:(NSURL *)url {
+- (void)setItemWithURL:(NSURL *)url {
   AVPlayerItem *playerItem = [self makePlayerItemWithURL:url];
   if (_player == nil) {
     _player = [AVPlayer playerWithPlayerItem:playerItem];
@@ -78,6 +82,10 @@ static NSTimeInterval const SkipTimeInterval = 15;
   } else {
     [_player replaceCurrentItemWithPlayerItem:playerItem];
   }
+}
+
+- (void)play:(NSURL *)url {
+  [self setItemWithURL:url];
   [self play];
 }
 
@@ -160,8 +168,20 @@ static NSTimeInterval const SkipTimeInterval = 15;
 #pragma mark - Private
 
 - (AVPlayerItem *)makePlayerItemWithURL:(NSURL *)url {
-  AVPlayerItem *playerItem = [[AVPlayerItem alloc] initWithURL:url];
-  return playerItem;
+  AVAsset *asset = [self makeAssetWithURL:url];
+  return [[AVPlayerItem alloc] initWithAsset:asset];
+}
+
+- (AVAsset *)makeAssetWithURL:(NSURL *)url {
+  NSString *key = url.absoluteString;
+  if ([_diskCache hasDataForKey:key]) {
+    NSURL *url = [_diskCache fileURLForKey:key];
+    AVAsset *loadedAsset = [AVAsset assetWithURL:url];
+    return loadedAsset;
+  } else {
+    AVAsset *loadableAsset = [AVAsset assetWithURL:url];
+    return loadableAsset;
+  }
 }
 
 - (void)addTimerObserver {
@@ -174,6 +194,14 @@ static NSTimeInterval const SkipTimeInterval = 15;
                                                         usingBlock:^(CMTime time) {
     [weakSelf updateCurrentTime];
   }];
+}
+
+- (void)addPlayerStatusObserver {
+  [_player addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+- (void)removeStatusObserver {
+  [_player removeObserver:self forKeyPath:@"status"];
 }
 
 - (void)removeTimerObserver {
@@ -215,6 +243,20 @@ static NSTimeInterval const SkipTimeInterval = 15;
     _fastForwardTime = self.currentTime;
   }
   [_delegates player: self didUpdateCurrentTime:self.currentTime withProgress: self.progress];
+}
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSKeyValueChangeKey,id> *)change
+                       context:(void *)context {
+  if (![keyPath  isEqual: @"status"] && object != _player) {
+    return;
+  }
+  if (_player.status == AVPlayerStatusFailed && _player.error) {
+    [_delegates player:self didReceiveError:_player.error];
+  }
 }
 
 @end

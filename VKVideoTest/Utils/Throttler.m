@@ -34,4 +34,10 @@
                  _workItem);
 }
 
+- (void)cancel {
+  if (_workItem) {
+    dispatch_block_cancel(_workItem);
+  }
+}
+
 @end

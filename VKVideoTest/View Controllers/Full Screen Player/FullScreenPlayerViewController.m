@@ -247,6 +247,8 @@
   }];
   if (!_isControlsHidden) {
     [self hideControlsOnAppear];
+  } else {
+    [_throttler cancel];
   }
 }
 

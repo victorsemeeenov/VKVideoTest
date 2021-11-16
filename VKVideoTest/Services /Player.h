@@ -17,6 +17,7 @@
 - (void)player:(Player *)player didUpdatePlayingState:(BOOL)isPlaying;
 - (void)player:(Player *)player didUpdateCurrentTime:(NSTimeInterval)currentTime
                           withProgress:(float)progress;
+- (void)player:(Player *)player didReceiveError:(NSError *)error;
 
 @end
 
@@ -36,6 +37,7 @@
 
 - (AVPlayer *)player;
 - (void)playOrPause;
+- (void)setItemWithURL:(NSURL *)url;
 - (void)play:(NSURL *)url;
 - (void)skipForward;
 - (void)skipBackward;

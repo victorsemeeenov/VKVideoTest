@@ -19,6 +19,9 @@
 @property (nonatomic) Player *player;
 @property (nonatomic) UIButton *muteButton;
 @property (nonatomic) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic) UIButton *downloadButton;
+@property (nonatomic) UILabel *progressLabel;
+@property (nonatomic) FilesLoader *filesLoader;
 
 @end
 
@@ -37,6 +40,10 @@
     _muteButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _activityIndicator = [[UIActivityIndicatorView alloc]
                           initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleMedium];
+    _downloadButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    _progressLabel = [UILabel new];
+    _filesLoader = [FilesLoader new];
+    _filesLoader.delegate = self;
   }
   return self;
 }
@@ -57,6 +64,8 @@
   [self setupMuteButton];
   [self setupTextField];
   [self setupPlayButton];
+  [self setupDownloadButton];
+  [self setupProgressLabel];
   [self setupGestureRecognizer];
 }
 
@@ -80,9 +89,9 @@
   [self.view addSubview:_activityIndicator];
   _activityIndicator.translatesAutoresizingMaskIntoConstraints = NO;
   NSLayoutConstraint *centerY = [_activityIndicator.centerYAnchor
-                                 constraintEqualToAnchor:self.view.centerYAnchor];
+                                 constraintEqualToAnchor:_playerView.centerYAnchor];
   NSLayoutConstraint *centerX = [_activityIndicator.centerXAnchor
-                                 constraintEqualToAnchor:self.view.centerXAnchor];
+                                 constraintEqualToAnchor:_playerView.centerXAnchor];
   [NSLayoutConstraint activateConstraints:@[centerY, centerX]];
   _activityIndicator.hidesWhenStopped = true;
   _activityIndicator.hidden = true;
@@ -143,6 +152,34 @@
   [NSLayoutConstraint activateConstraints: @[leading, trailing, centerY, width]];
 }
 
+- (void)setupDownloadButton {
+  [self.view addSubview:_downloadButton];
+  [_downloadButton setTitle:@"Download" forState:UIControlStateNormal];
+  [_downloadButton addTarget:self
+                      action:@selector(download)
+            forControlEvents:UIControlEventTouchUpInside];
+  _downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
+  NSLayoutConstraint *leading = [_downloadButton.leadingAnchor
+                                 constraintEqualToAnchor:self.view.leadingAnchor
+                                 constant:16];
+  NSLayoutConstraint *top = [_downloadButton.topAnchor
+                             constraintEqualToAnchor:_textField.bottomAnchor
+                             constant:16];
+  [NSLayoutConstraint activateConstraints:@[leading, top]];
+}
+
+- (void)setupProgressLabel {
+  [self.view addSubview:_progressLabel];
+  _progressLabel.translatesAutoresizingMaskIntoConstraints = NO;
+  NSLayoutConstraint *top = [_progressLabel.topAnchor
+                             constraintEqualToAnchor:_downloadButton.bottomAnchor
+                             constant:16];
+  NSLayoutConstraint *leading = [_progressLabel.leadingAnchor
+                                 constraintEqualToAnchor:self.view.leadingAnchor
+                                 constant:16];
+  [NSLayoutConstraint activateConstraints:@[top, leading]];
+}
+
 - (void)setupGestureRecognizer {
   UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
                                         initWithTarget:self
@@ -150,13 +187,15 @@
   [self.playerView addGestureRecognizer:tapGesture];
 }
 
-#pragma mark - Layout
-
-- (void)layoutPlayButton {
-  [_playButton setFrame:CGRectMake(CGRectGetMaxX(_textField.frame) + 16,
-                                   _textField.frame.origin.y,
-                                   40,
-                                   _textField.frame.size.height)];
+- (void)handleError:(NSError *)error {
+  NSString *message = [NSString stringWithFormat:@"%@",
+                       [error localizedDescription]];
+  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                           message:message
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+  [alertController addAction:okAction];
+  [self presentViewController:alertController animated:true completion:nil];
 }
 
 #pragma mark - Actions
@@ -185,12 +224,39 @@
   [self updateMuteIcon];
 }
 
+- (void)download {
+  NSURL *url = [NSURL URLWithString: _textField.text];
+  [_filesLoader downloadFileForURL:url];
+}
+
 #pragma mark - PlayerDelegate
 - (void)player:(Player *)player didUpdatePlayingState:(BOOL)isPlaying {
   _playerView.player = player.player;
   if (isPlaying) {
     [_activityIndicator stopAnimating];
   }
+}
+
+- (void)player:(Player *)player didReceiveError:(NSError *)error {
+  [self handleError:error];
+}
+
+- (void)loader:(FilesLoader *)loader didReceiveError:(NSError *)error {
+  [self handleError:error];
+}
+
+#pragma mark - FilesLoaderDelegate
+
+- (void)loader:(FilesLoader *)loader didUpdateProgress:(float)progress forURL:(NSURL *)url {
+  if (![_textField.text isEqualToString:url.absoluteString]) {
+    return;
+  }
+  NSString *progressTitle = [NSString stringWithFormat: @"Progress: %.2f", 100 * progress];
+  _progressLabel.text = progressTitle;
+}
+
+- (void)loader:(FilesLoader *)loader didDownloadData:(NSData *)data forURL:(NSURL *)url {
+  _progressLabel.text = @"Loaded";
 }
 
 @end

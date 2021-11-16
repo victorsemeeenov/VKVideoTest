@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		773E2629274173E7002F374E /* Throttler.m in Sources */ = {isa = PBXBuildFile; fileRef = 773E2628274173E7002F374E /* Throttler.m */; };
+		777D92A42742AFC800585424 /* DiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D92A32742AFC800585424 /* DiskCache.m */; };
+		777D92AB2743596800585424 /* FilesLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D92AA2743596800585424 /* FilesLoader.m */; };
+		777D92AE27435C6A00585424 /* DataTaskLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 777D92AD27435C6A00585424 /* DataTaskLoader.m */; };
 		777F931B273EE34B00351A0A /* AVPlayer+IsPlaying.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F931A273EE34B00351A0A /* AVPlayer+IsPlaying.m */; };
 		777F9320273FFF7800351A0A /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F931F273FFF7800351A0A /* PlayerView.m */; };
 		777F93252740074600351A0A /* FullScreenPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 777F93242740074600351A0A /* FullScreenPlayerViewController.m */; };
@@ -24,6 +27,12 @@
 /* Begin PBXFileReference section */
 		773E2627274173E7002F374E /* Throttler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Throttler.h; sourceTree = "<group>"; };
 		773E2628274173E7002F374E /* Throttler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Throttler.m; sourceTree = "<group>"; };
+		777D92A22742AFC800585424 /* DiskCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiskCache.h; sourceTree = "<group>"; };
+		777D92A32742AFC800585424 /* DiskCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiskCache.m; sourceTree = "<group>"; };
+		777D92A92743596800585424 /* FilesLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilesLoader.h; sourceTree = "<group>"; };
+		777D92AA2743596800585424 /* FilesLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilesLoader.m; sourceTree = "<group>"; };
+		777D92AC27435C6A00585424 /* DataTaskLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataTaskLoader.h; sourceTree = "<group>"; };
+		777D92AD27435C6A00585424 /* DataTaskLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataTaskLoader.m; sourceTree = "<group>"; };
 		777F931A273EE34B00351A0A /* AVPlayer+IsPlaying.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVPlayer+IsPlaying.m"; sourceTree = "<group>"; };
 		777F931C273EE36100351A0A /* AVPlayer+IsPlaying.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVPlayer+IsPlaying.h"; sourceTree = "<group>"; };
 		777F931E273FFF7800351A0A /* PlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayerView.h; sourceTree = "<group>"; };
@@ -94,6 +103,12 @@
 				777F932B27400B5100351A0A /* MulticastDelegate.m */,
 				773E2627274173E7002F374E /* Throttler.h */,
 				773E2628274173E7002F374E /* Throttler.m */,
+				777D92A22742AFC800585424 /* DiskCache.h */,
+				777D92A32742AFC800585424 /* DiskCache.m */,
+				777D92A92743596800585424 /* FilesLoader.h */,
+				777D92AA2743596800585424 /* FilesLoader.m */,
+				777D92AC27435C6A00585424 /* DataTaskLoader.h */,
+				777D92AD27435C6A00585424 /* DataTaskLoader.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -238,11 +253,14 @@
 			files = (
 				773E2629274173E7002F374E /* Throttler.m in Sources */,
 				77C0DC95273D7E9D00752794 /* Player.m in Sources */,
+				777D92AB2743596800585424 /* FilesLoader.m in Sources */,
 				777F932927400AE600351A0A /* WeakRef.m in Sources */,
 				777F9320273FFF7800351A0A /* PlayerView.m in Sources */,
 				77C0DC75273D78F900752794 /* AppDelegate.m in Sources */,
 				777F93252740074600351A0A /* FullScreenPlayerViewController.m in Sources */,
 				77C0DC86273D78FC00752794 /* main.m in Sources */,
+				777D92AE27435C6A00585424 /* DataTaskLoader.m in Sources */,
+				777D92A42742AFC800585424 /* DiskCache.m in Sources */,
 				77C0DC91273D799700752794 /* PlayerViewController.m in Sources */,
 				777F932C27400B5100351A0A /* MulticastDelegate.m in Sources */,
 				777F931B273EE34B00351A0A /* AVPlayer+IsPlaying.m in Sources */,

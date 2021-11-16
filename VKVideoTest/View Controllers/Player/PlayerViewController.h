@@ -7,8 +7,9 @@
 
 @import UIKit;
 #import "Player.h"
+#import "FilesLoader.h"
 
-@interface PlayerViewController : UIViewController<PlayerDelegate>
+@interface PlayerViewController : UIViewController<PlayerDelegate, FilesLoaderDelegate>
 
 - (instancetype)initWithPlayer:(Player *)player;
 
